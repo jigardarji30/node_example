@@ -1,0 +1,114 @@
+<html>
+<head>Demo of node.js</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<script>
+function check(){
+	 var first_name = document.form.first_name.value; 
+     var last_name = document.form.last_name.value;
+	 var email = document.form.email.value; 
+	 var password = document.form.password.value; 
+	 var flag = true;
+    
+    if(first_name == ''){
+    	first_name = document.getElementById('fname').innerHTML='Enter Firstname';
+       return flag = false;
+     } else {
+     	
+    	first_name = document.getElementById('fname').innerHTML='';
+    }
+
+    if(last_name == ''){
+    	last_name = document.getElementById('lname').innerHTML='Enter Lastname';
+       return flag = false;
+     } else {
+    	last_name = document.getElementById('lname').innerHTML='';
+    }
+
+     if(email == '')
+     {
+    	email = document.getElementById('email_id').innerHTML='Enter Email';
+    	return flag = false;
+     }
+     else
+     {
+            if(email != "/[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/")
+	     	{
+		      	email = document.getElementById('email_id').innerHTML='Invalid Email';
+	     		
+		      
+	        } 
+	        else 
+	        {
+	     		email = document.getElementById('email_id').innerHTML='';
+       			
+            }
+    }
+    
+     if(password == ''){
+    	password = document.getElementById('pass').innerHTML='Enter Password';
+    	return flag = false;
+    } else if(password.length < 5){
+    	password = document.getElementById('pass').innerHTML='Password Must Be More Than 5 Characters';
+    	return flag = false;
+    	
+       } else {
+         password = document.getElementById('pass').innerHTML='';
+    }
+    return flag;
+    // console.log(first_name);
+}    
+</script>
+
+
+<body>
+<div class="container">
+   <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+			<h3>Form Demo</h3>
+			  <div class="card-body">
+			    <form action='' method='GET' name='form' id='form' onsubmit='return check()'>
+			      <div class="form-group row">
+				     
+				     <div class='form-group'>	
+					       <label class='col-form-label text-md-center'>First Name</label>
+					    	<input type='text' name='first_name'>
+					    	<div id='fname' name='fname' style='color:red'></div>
+				     </div>
+
+				     <div class='form-group'>	
+					       <label class='col-form-label text-md-center'>Last Name</label>
+					    	<input type='text' name='last_name'>
+					    	<div id='lname' name='lname' style='color:red'></div>
+				     </div>	
+
+				     <div class='form-group'>	
+					       <label class='col-form-label text-md-center'>Email</label>
+					    	<input type='text' name='email'>
+					    	<div id='email_id' name='email_id' style='color:red'></div>
+				     </div>
+
+				     <div class='form-group'>	
+					       <label class='col-form-label text-md-center'>Password</label>
+					    	<input type='password' name='password'>
+					    	<div id='pass' name='pass' style='color:red'></div>
+				     </div>
+
+				     <div class='form-group'>	
+				      	  <button class='btn btn-primary' type='submit' name='submit'>Submit</button>
+				     </div>
+
+			       </div>
+			     </form>
+			   </div>
+
+			 </div>
+		  </div>	   
+	 </div>  
+</div>
+</body>
+</html>
+
